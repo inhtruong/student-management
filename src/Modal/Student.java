@@ -11,7 +11,7 @@ public class Student {
 
     }
 
-    public Student(int id, String name, int age, String address, double mathScore, double physicScore, double chemistryScore) {
+    public Student(int id, String name, int age, String address, double mathScore, double physicScore, double chemistryScore, double gpa) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -19,13 +19,6 @@ public class Student {
         this.mathScore = mathScore;
         this.physicScore = physicScore;
         this.chemistryScore = chemistryScore;
-    }
-
-    public Student(int id, String name, int age, String address, double gpa) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.address = address;
         this.gpa = gpa;
     }
 

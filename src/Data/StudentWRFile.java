@@ -31,8 +31,15 @@ public class StudentWRFile {
                 bw.append(COMMA_DELIMITER);
                 bw.append(student.getAddress());
                 bw.append(COMMA_DELIMITER);
-                bw.append(String.valueOf(student.getGpa()));
+                bw.append(String.valueOf(student.getMathScore()));
+                bw.append(COMMA_DELIMITER);
+                bw.append(String.valueOf(student.getPhysicScore()));
+                bw.append(COMMA_DELIMITER);
+                bw.append(String.valueOf(student.getChemistryScore()));
+                bw.append(COMMA_DELIMITER);
+                bw.append(String.valueOf(String.format("%,1f",student.getGpa())));
                 bw.append(NEW_LINE_SEPARATOR);
+
             }
             System.out.println("CSV file was created successfully!!");
 
@@ -75,7 +82,10 @@ public class StudentWRFile {
                 student1.setName(student[1]);
                 student1.setAge(Integer.parseInt(student[2]));
                 student1.setAddress(student[3]);
-                student1.setGpa(Double.parseDouble(student[4]));
+                student1.setMathScore(Double.parseDouble(student[4]));
+                student1.setPhysicScore(Double.parseDouble(student[5]));
+                student1.setChemistryScore(Double.parseDouble(student[6]));
+                student1.setGpa(Double.parseDouble(student[7]));
                 studentList.add(student1);
             }
         } catch (FileNotFoundException e) {
@@ -107,12 +117,12 @@ public class StudentWRFile {
 //        return studentList;
 //    }
 
-    private static void printStudent(List<Student> studentList) {
-        System.out.println("Modal.Student [id=" + studentList.get(0) +
-                                    ", name='" + studentList.get(1) + '\'' +
-                                    ", age=" + studentList.get(2) +
-                                    ", address='" + studentList.get(3) + '\'' +
-                                    ", gpa=" + studentList.get(4) +
-                            "]");
-    }
+//    private static void printStudent(List<Student> studentList) {
+//        System.out.println("Modal.Student [id=" + studentList.get(0) +
+//                                    ", name='" + studentList.get(1) + '\'' +
+//                                    ", age=" + studentList.get(2) +
+//                                    ", address='" + studentList.get(3) + '\'' +
+//                                    ", gpa=" + studentList.get(4) +
+//                            "]");
+//    }
 }

@@ -12,7 +12,7 @@ public class CheckRegex {
     }
 
     public static boolean checkAgeStudent(String str) {
-        String regex = "^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$";
+        String regex = "^(0?[1-9]|[1-9][0-9]|[1][0-9][0-9]|200)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
@@ -30,5 +30,19 @@ public class CheckRegex {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
+    }
+    public static boolean checkId(String str) {
+        String regex = "^\\d{1}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
+    }
+
+    public static String convertInt(String str) {
+        if (str.equals("1")||str.equals("2")||str.equals("3")||str.equals("4")|| str.equals("5")||
+                str.equals("6")||str.equals("7")||str.equals("8")|| str.equals("9")||str.equals("10")) {
+            str = str + ".0";
+        }
+        return str;
     }
 }
