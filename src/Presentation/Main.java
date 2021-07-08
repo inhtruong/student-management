@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         String choose = null;
         String choose_menu = null;
@@ -22,45 +20,60 @@ public class Main {
             choose = new Scanner(System.in).nextLine();
             switch (choose) {
                 case "1":
-                    showMenu();
-                    while (true) {
-                        choose_menu = scanner.nextLine();
-                        switch (choose_menu) {
-                            case "1":
-                                studentManager.add();
-                                break;
-                            case "2":
-                                studentId = studentManager.inputId();
-                                studentManager.edit(studentId);
-                                break;
-                            case "3":
-                                studentId = studentManager.inputId();
-                                studentManager.delete(studentId);
-                                break;
-                            case "4":
-                                studentManager.sortStudentByGPA();
-                                break;
-                            case "5":
-                                studentManager.sortStudentByName();
-                                break;
-                            case "6":
-                                studentManager.show();
-                                break;
-                            case "7":
-                                studentManager.findStudentByName();
-                                break;
-                            case "0":
-                                showLogin();
-                                break;
-                            default:
-                                System.out.println("invalid! please choose action in below menu:");
-                                break;
-                        }
-                        if (choose_menu.equals("0")) {
-                            break;
-                        }
-                        // show menu
+                    System.out.print("Enter Usename: ");
+                    String admin = new Scanner(System.in).nextLine();
+                    System.out.print("Enter Password: ");
+                    String password = new Scanner(System.in).nextLine();
+                    if (!admin.equals("admin")  && !password.equals("admin")) {
+                        System.out.println("Invalid usename and password. Please re-enter!!");
+                        showLogin();
+                    } else if (!password.equals("admin")) {
+                        System.out.println("Invalid password. Please re-enter!!");
+                        showLogin();
+                    } else if (!admin.equals("admin")) {
+                        System.out.println("Invalid login name. Please re-enter!!");
+                        showLogin();
+                    } else {
                         showMenu();
+                        while (true) {
+                            choose_menu = new Scanner(System.in).nextLine();
+                            switch (choose_menu) {
+                                case "1":
+                                    studentManager.add();
+                                    break;
+                                case "2":
+                                    studentId = studentManager.inputId();
+                                    studentManager.edit(studentId);
+                                    break;
+                                case "3":
+                                    studentId = studentManager.inputId();
+                                    studentManager.delete(studentId);
+                                    break;
+                                case "4":
+                                    studentManager.sortStudentByGPA();
+                                    break;
+                                case "5":
+                                    studentManager.sortStudentByName();
+                                    break;
+                                case "6":
+                                    studentManager.show();
+                                    break;
+                                case "7":
+                                    studentManager.findStudentByName();
+                                    break;
+                                case "0":
+                                    showLogin();
+                                    break;
+                                default:
+                                    System.out.println("invalid! please choose action in below menu:");
+                                    break;
+                            }
+                            if (choose_menu.equals("0")) {
+                                break;
+                            }
+                            // show menu
+                            showMenu();
+                        }
                     }
                     break;
                 case "2":

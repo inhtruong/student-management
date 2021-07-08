@@ -21,7 +21,7 @@ public class StudentManager {
     public StudentManager() {
         studentWRFile = new StudentWRFile();
 //        studentList = studentWRFile.readFile();
-        studentList = studentWRFile.readFile();
+//        studentList = studentWRFile.readFile();
     }
 
     public void add() {
@@ -43,6 +43,7 @@ public class StudentManager {
     public void edit(int id) {
         boolean isExisted = false;
         int SIZE = studentList.size();
+        studentList = studentWRFile.readFile();
 
         for (int i = 0; i < SIZE; i++) {
             if (studentList.get(i).getId() == id) {
@@ -135,6 +136,7 @@ public class StudentManager {
 
     public void findStudentByName() {
         int SIZE = studentList.size();
+        studentList = studentWRFile.readFile();
 
         System.out.print("Sreach Name: ");
         String nameStudent = scan.nextLine();
@@ -165,12 +167,12 @@ public class StudentManager {
     }
 
     private String inputName() {
-        System.out.print("Input student name (vd: Truong Dat):  ");
+        System.out.print("Input student name (Example: Truong Dat):  ");
         String name = scan.nextLine();
 
         while (!checkNameStudent(name)) {
             System.out.println("Student name does not match. Please re-enter!!");
-            System.out.print("Input student name (vd: Truong Dat): ");
+            System.out.print("Input student name (Example: Truong Dat): ");
             name = scan.nextLine();
         }
         return name;
@@ -178,12 +180,12 @@ public class StudentManager {
 
 
     private String inputAddress() {
-        System.out.print("Input student address (vd: 29 Duong Van An): ");
+        System.out.print("Input student address (Example: 29 Duong Van An): ");
         String address = scan.nextLine();
 
         while (!checkAddressStudent(address)) {
             System.out.println("Student address does not match. Please re-enter!!");
-            System.out.print("Input student address (vd: 29 Duong Van An): ");
+            System.out.print("Input student address (Example: 29 Duong Van An): ");
             address = scan.nextLine();
         }
         return address;
@@ -202,12 +204,12 @@ public class StudentManager {
     }
 
     private double inputMathSroce() {
-        System.out.print("Input student math sroce (vd: 7.5): ");
+        System.out.print("Input Math score (Example: 7.5): ");
         String mathSroce = scan.nextLine();
 
         while (!checkSroceStudent(mathSroce)) {
-            System.out.println("Student math sroce does not match. Please re-enter!!");
-            System.out.print("Input student math sroce (vd: 7.5): ");
+            System.out.println("Math score does not match. Please re-enter!!");
+            System.out.print("Input Math score (Example: 7.5): ");
             mathSroce = scan.nextLine();
         }
         convertInt(mathSroce);
@@ -215,12 +217,12 @@ public class StudentManager {
     }
 
     private double inputPhysicSroce() {
-        System.out.print("Input student physic score (vd: 7.5): ");
+        System.out.print("Input Physic score (Example: 7.5): ");
         String phyScore = scan.nextLine();
 
         while (!checkSroceStudent(phyScore)) {
-            System.out.println("Student physic score does not match. Please re-enter!!");
-            System.out.print("Input student physic score (vd: 7.5): ");
+            System.out.println("Physic score does not match. Please re-enter!!");
+            System.out.print("Input Physic score (Example: 7.5): ");
             phyScore = scan.nextLine();
         }
         convertInt(phyScore);
@@ -228,12 +230,12 @@ public class StudentManager {
     }
 
     private double inputChemistrySroce() {
-        System.out.print("Input student chemistry sroce: ");
+        System.out.print("Input Chemistry score (Example: 7.5): ");
         String chemSroce = scan.nextLine();
 
         while (!checkSroceStudent(chemSroce)) {
-            System.out.println("Student chemistry sroce does not match. Please re-enter!!");
-            System.out.print("Input student chemistry sroce: ");
+            System.out.println("Chemistry score does not match. Please re-enter!!");
+            System.out.print("Input chemistry score (Example: 7.5");
             chemSroce = scan.nextLine();
         }
         convertInt(chemSroce);
